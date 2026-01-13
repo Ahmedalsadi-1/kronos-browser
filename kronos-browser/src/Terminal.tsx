@@ -20,6 +20,11 @@ export const TerminalComponent = () => {
     term.open(terminalRef.current);
     fitAddon.fit();
 
+    const resizeObserver = new ResizeObserver(() => {
+      fitAddon.fit();
+    });
+    resizeObserver.observe(terminalRef.current);
+
     window.electron.spawn();
 
     term.onData((data) => {
@@ -31,6 +36,7 @@ export const TerminalComponent = () => {
     });
 
     return () => {
+      resizeObserver.disconnect();
       term.dispose();
     };
   }, []);

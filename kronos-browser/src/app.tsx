@@ -18,18 +18,16 @@ export const App = () => {
         return <Browser />;
       case PANELS.KRON_DESKTOP:
         return (
-          <iframe
+          <webview
             src="http://localhost:5173"
             className="w-full h-full border-none"
-            title="Kron Desktop"
           />
         );
       case PANELS.BROWSEROS_AGENT:
         return (
-          <iframe
+          <webview
             src="http://localhost:3000/newtab.html"
             className="w-full h-full border-none"
-            title="BrowserOS Agent"
           />
         );
       case PANELS.TERMINAL:
