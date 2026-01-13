@@ -1,0 +1,10 @@
+git clone https://github.com/microsoft/OmniParser.git
+
+conda create -n "omni" python==3.12
+conda activate omni
+pip install -r requirements.txt
+
+python download_models.py
+
+cd OmniParser
+python weights/convert_safetensor_to_pt.py

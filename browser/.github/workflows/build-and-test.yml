@@ -1,0 +1,68 @@
+name: Lint and Formatting
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: macos-14
+    
+    strategy:
+      matrix:
+        xcode: ['15.0']
+    
+    steps:
+    - name: Check architecture
+      run: uname -m
+      
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Select Xcode version
+      run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
+    
+    - name: Show Xcode version
+      run: xcodebuild -version
+    
+    - name: Show Swift version
+      run: swift --version
+
+    - name: Install Xcodegen
+      run: brew install xcodegen
+
+    - name: Generate Xcode project
+      run: xcodegen
+
+    - name: Install SwiftLint
+      run: brew install swiftlint
+
+    - name: Run SwiftLint
+      run: swiftlint lint
+
+    - name: Install SwiftFormat
+      run: brew install swiftformat
+
+    - name: Check code formatting
+      run: swiftformat --lint .
+
+    - name: Install Xcbeautify
+      run: brew install xcbeautify
+
+    - name: Clean build folder
+      run: xcodebuild clean -scheme ora -project Ora.xcodeproj
+    
+    - name: Cache SPM dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/Library/Caches/org.swift.swiftpm/
+          ~/.swiftpm/
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.swift') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+    
+    - name: Resolve dependencies
+      run: xcodebuild -resolvePackageDependencies

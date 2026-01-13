@@ -1,0 +1,23 @@
+{
+  "name": "Factifai",
+  "version": "1.3.3",
+  "description": "",
+  "scripts": {
+    "start": "concurrently --prefix none \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run dev",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "changeset": "npx @changesets/cli",
+    "changeset-version": "npm run changeset version"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "kiro-cli": "^0.0.1"
+  }
+}
