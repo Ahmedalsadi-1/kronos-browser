@@ -12,7 +12,6 @@ This workspace, `kronos-os`, is a collection of distinct AI-driven browser, agen
 | **`kron-desktop/`** | **Kronos Desktop** | 🟢 **Ready** | 🟢 Yes | ✅ Indigo | **React**, Vite, Node.js |
 | **`kronbot/`** | **Kronos Agent** | 🟢 **Ready** | 🟢 Yes | ✅ Indigo | **Docker**, Node.js, Ubuntu |
 | **`void/`** | **Kronos Editor** | 🔴 **Build Failed** | 🟢 Partial | ❌ | **TypeScript**, Electron |
-| **`browser/`** | **Kronos Browser** | 🟢 **Built** | 🟢 Yes | ✅ Indigo | **Swift**, SwiftUI |
 
 ---
 
@@ -63,16 +62,7 @@ To launch the ecosystem servers (Kronos Desktop, Kronos Agent, BrowserOS Server)
 *   **Backend**: http://localhost:3001
 *   **Notes**: AI-powered computer control for automated testing.
 
-### 3. Kronos Agent (formerly Kronbot/Bytebot)
-*   **UI**: http://localhost:9992
-*   **Command**: `docker-compose up`
-*   **Notes**: Autonomous desktop agent in a virtualized environment.
-
-### 4. Kronos Browser (formerly Ora)
-*   **Status**: Built.
-*   **Location**: `/Users/albsheralsadi/Library/Developer/Xcode/DerivedData/Kronos-.../Build/Products/Release/Kronos.app`
-*   **To Run**: `open /Users/albsheralsadi/Library/Developer/Xcode/DerivedData/Kronos-duxbbmurktzxrgfhpxkykejjkaxb/Build/Products/Release/Kronos.app`
-*   **Features**: Now includes an embedded Kronos Assistant panel in the sidebar, accessible via the Kronos Logo button.
+### 3. Kronos Agent (formerly Kronosbot/Bytebot)
 
 ---
 
@@ -82,4 +72,3 @@ To launch the ecosystem servers (Kronos Desktop, Kronos Agent, BrowserOS Server)
 2.  **Tool Selection**:
     *   Use **Bun** strictly for `BrowserOS-agent`.
     *   Use **npm/pnpm** for `void`, `kron-desktop`, and `kronbot`.
-    *   Use **Xcode/Swift** tools for `browser`.

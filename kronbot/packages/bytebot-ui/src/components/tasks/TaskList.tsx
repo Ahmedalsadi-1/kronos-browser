@@ -71,20 +71,20 @@ export const TaskList: React.FC<TaskListProps> = ({
     <div className={className}>
       {showHeader && (
         <div className="mb-6 flex flex-col gap-1">
-          <h2 className="text-base font-medium">{title}</h2>
-          <p className="text-sm text-bytebot-bronze-light-11">{description}</p>
+          <h2 className="text-base font-medium text-zen-grey-dark-2">{title}</h2>
+          <p className="text-sm text-zen-grey-mid-2">{description}</p>
         </div>
       )}
       
       {isLoading ? (
         <div className="p-4 text-center">
-          <div className="animate-spin h-6 w-6 border-4 border-bytebot-bronze-light-5 border-t-bytebot-bronze rounded-full mx-auto mb-2"></div>
-          <p className="text-gray-500 text-sm">Loading tasks...</p>
+          <div className="animate-spin h-6 w-6 border-4 border-zen-grey-light-3 border-t-zen-grey-mid-1 rounded-full mx-auto mb-2"></div>
+          <p className="text-zen-grey-mid-2 text-sm">Loading tasks...</p>
         </div>
       ) : tasks.length === 0 ? (
-        <div className="p-4 text-center border border-dashed border-bytebot-bronze-light-5 rounded-lg">
-          <p className="text-gray-500 text-sm">No tasks available</p>
-          <p className="text-gray-400 text-xs mt-1">Your completed tasks will appear here</p>
+        <div className="p-4 text-center glass border border-zen-grey-light-2 rounded-lg">
+          <p className="text-zen-grey-mid-2 text-sm">No tasks available</p>
+          <p className="text-zen-grey-mid-1 text-xs mt-1">Your completed tasks will appear here</p>
         </div>
       ) : (
         <div className="space-y-3">

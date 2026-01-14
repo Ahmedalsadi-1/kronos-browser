@@ -56,8 +56,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   const visiblePages = getVisiblePages();
 
   return (
-    <div className="flex items-center justify-between border-t border-bytebot-bronze-light-7 pt-6">
-      <div className="flex items-center text-sm text-bytebot-bronze-light-11">
+    <div className="flex items-center justify-between border-t border-zen-grey-light-2 pt-6">
+      <div className="flex items-center text-sm text-zen-grey-mid-2">
         Showing {startItem} to {endItem} of {total} results
       </div>
       
@@ -79,7 +79,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               return (
                 <span
                   key={`ellipsis-${index}`}
-                  className="px-3 py-2 text-sm text-bytebot-bronze-light-11"
+                  className="px-3 py-2 text-sm text-zen-grey-mid-2"
                 >
                   ...
                 </span>
@@ -98,7 +98,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                 className={`min-w-[40px] ${
                   isCurrentPage
                     ? "bg-bytebot-bronze-dark-7 text-white"
-                    : "text-bytebot-bronze-light-11 hover:text-bytebot-bronze-dark-7"
+                    : "text-zen-grey-mid-2 hover:text-zen-grey-dark-1"
                 }`}
               >
                 {pageNum}

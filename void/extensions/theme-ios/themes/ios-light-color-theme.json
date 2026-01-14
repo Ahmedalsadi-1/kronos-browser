@@ -1,0 +1,228 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"name": "iOS Light",
+	"include": "./ios-base.json",
+	"tokenColors": [
+		{
+			"name": "Function declarations",
+			"scope": [
+				"entity.name.function",
+				"support.function",
+				"support.constant.handlebars",
+				"source.powershell variable.other.member",
+				"entity.name.operator.custom-literal"
+			],
+			"settings": {
+				"foreground": "#007AFF"
+			}
+		},
+		{
+			"name": "Types declaration and references",
+			"scope": [
+				"support.class",
+				"support.type",
+				"entity.name.type",
+				"entity.name.namespace",
+				"entity.other.attribute",
+				"entity.name.scope-resolution",
+				"entity.name.class"
+			],
+			"settings": {
+				"foreground": "#FF9500"
+			}
+		},
+		{
+			"name": "Control flow / Keywords",
+			"scope": [
+				"keyword.control",
+				"keyword.operator.new",
+				"keyword.operator.expression",
+				"keyword.cast",
+				"keyword.operator.expression",
+				"keyword.other.new",
+				"keyword.other.unit",
+				"keyword.other.ternary"
+			],
+			"settings": {
+				"foreground": "#AF52DE"
+			}
+		},
+		{
+			"name": "Variables and parameters",
+			"scope": [
+				"variable",
+				"entity.name.variable",
+				"support.variable",
+				"variable.other.readwrite",
+				"variable.parameter"
+			],
+			"settings": {
+				"foreground": "#8E8E93"
+			}
+		},
+		{
+			"name": "Strings",
+			"scope": [
+				"string",
+				"constant.other.symbol",
+				"constant.other.key",
+				"support.constant.property-value"
+			],
+			"settings": {
+				"foreground": "#34C759"
+			}
+		},
+		{
+			"name": "Numbers",
+			"scope": [
+				"constant.numeric",
+				"constant.language",
+				"support.constant.math",
+				"constant.color",
+				"constant.numeric.integer",
+				"constant.numeric.float",
+				"constant.numeric.hex",
+				"constant.numeric.octal",
+				"constant.numeric.binary",
+				"constant.numeric.decimal"
+			],
+			"settings": {
+				"foreground": "#32D74B"
+			}
+		},
+		{
+			"name": "Comments",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment"
+			],
+			"settings": {
+				"foreground": "#8E8E9380"
+			}
+		},
+		{
+			"name": "Constants",
+			"scope": [
+				"constant",
+				"support.constant",
+				"variable.other.constant",
+				"variable.other.enummember"
+			],
+			"settings": {
+				"foreground": "#AF52DE"
+			}
+		},
+		{
+			"name": "Operators",
+			"scope": [
+				"keyword.operator",
+				"punctuation.accessor",
+				"meta.brace.square",
+				"meta.delimiter.object.comma",
+				"meta.delimiter.method.period",
+				"meta.tag",
+				"punctuation.definition.tag",
+				"punctuation.separator.key-value"
+			],
+			"settings": {
+				"foreground": "#3A3A3C"
+			}
+		},
+		{
+			"name": "Tags and attributes",
+			"scope": [
+				"entity.name.tag",
+				"meta.tag",
+				"entity.other.attribute-name",
+				"punctuation.definition.tag.begin",
+				"punctuation.definition.tag.end"
+			],
+			"settings": {
+				"foreground": "#32D74B"
+			}
+		},
+		{
+			"name": "Properties and methods",
+			"scope": [
+				"entity.other.inherited-class",
+				"meta.function-call",
+				"variable.function",
+				"variable.other.property",
+				"support.function",
+				"support.method",
+				"meta.method-call"
+			],
+			"settings": {
+				"foreground": "#007AFF"
+			}
+		},
+		{
+			"name": "Built-in objects",
+			"scope": [
+				"variable.language",
+				"support.variable",
+				"variable.other.object"
+			],
+			"settings": {
+				"foreground": "#FF9500"
+			}
+		},
+		{
+			"name": "CSS and style definitions",
+			"scope": [
+				"support.type.property-name",
+				"support.function.misc",
+				"meta.property-name",
+				"entity.name.function"
+			],
+			"settings": {
+				"foreground": "#32D74B"
+			}
+		},
+		{
+			"name": "Regular expressions",
+			"scope": [
+				"string.regexp",
+				"keyword.other.regexp"
+			],
+			"settings": {
+				"foreground": "#BF5AF2"
+			}
+		},
+		{
+			"name": "Markup",
+			"scope": [
+				"markup.heading",
+				"markup.bold",
+				"markup.italic",
+				"markup.underline",
+				"markup.strikethrough"
+			],
+			"settings": {
+				"foreground": "#AF52DE",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"name": "Emphasis",
+			"scope": [
+				"emphasis"
+			],
+			"settings": {
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "Invalid and deprecated",
+			"scope": [
+				"invalid",
+				"invalid.deprecated",
+				"variable.parameter.invalid",
+				"keyword.other.doc"
+			],
+			"settings": {
+				"foreground": "#FF3B30"
+			}
+		}
+	]
+}

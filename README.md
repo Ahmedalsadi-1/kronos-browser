@@ -7,10 +7,9 @@
 **A next-generation intelligent browser ecosystem powered by AI**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![GitHub Stars](https://img.shields.io/github/stars/Ahmedalsadi-1/kronos-browser)](https://github.com/Ahmedalsadi-1/kronos-browser/stargazers)
+[![TypeScript](https://img.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
-*A multi-project monorepo containing BrowserOS-agent, Void (VS Code fork), kron-desktop, and kronbot*
+*A multi-project monorepo containing KRONOS-agent, Void (VS Code fork), kron-desktop, and kronbot*
 
 </div>
 
@@ -18,7 +17,7 @@
 
 ## ✨ Features
 
-### 🖥️ BrowserOS-agent
+### 🖥️ KRONOS-agent
 - **Bun-based MCP server** for intelligent browser automation
 - **Chrome extension bridge** for seamless browser control
 - **Gemini AI integration** for natural language browsing
@@ -85,8 +84,8 @@ kronos-os/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Ahmedalsadi-1/kronos-browser.git
-cd kronos-browser
+git clone https://github.com/Ahmedalsadi-1/kronos-os.git
+cd kronos-os
 
 # Install dependencies for each project
 cd BrowserOS-agent && bun install
@@ -209,6 +208,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ by Ahmed Alsadi**
 
-[🌐 Website](https://kronos-os.dev) • [🐙 GitHub](https://github.com/Ahmedalsadi-1/kronos-browser) • [📧 Contact](mailto:albsheralsadi@example.com)
+[🌐 Website](https://kronos-os.dev) • [🐙 GitHub](https://github.com/Ahmedalsadi-1/kronos-os) • [📧 Contact](mailto:albsheralsadi@example.com)
 
 </div>

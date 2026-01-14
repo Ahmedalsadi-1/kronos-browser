@@ -25,29 +25,29 @@ interface StatusIconConfig {
 const STATUS_CONFIGS: Record<TaskStatus, StatusIconConfig> = {
   [TaskStatus.COMPLETED]: {
     icon: Tick02Icon,
-    color: "text-bytebot-green-8",
+    color: "text-[#4ade80]",
   },
   [TaskStatus.RUNNING]: {
     useLoader: true,
   },
   [TaskStatus.NEEDS_HELP]: {
     icon: AlertCircleIcon,
-    color: "text-[#FF9D00]",
+    color: "text-[#f59e0b]",
   },
   [TaskStatus.PENDING]: {
     useLoader: true,
   },
   [TaskStatus.FAILED]: {
     icon: AlertCircleIcon,
-    color: "text-bytebot-red-light-9",
+    color: "text-zen-grey-mid-1",
   },
   [TaskStatus.NEEDS_REVIEW]: {
     icon: AlertCircleIcon,
-    color: "text-[#FF9D00]",
+    color: "text-[#f59e0b]",
   },
   [TaskStatus.CANCELLED]: {
     icon: CancelCircleIcon,
-    color: "text-bytebot-bronze-light-10",
+    color: "text-zen-grey-mid-2",
   },
 };
 
@@ -91,16 +91,16 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
   return (
     <Link href={`/tasks/${task.id}`} className="block">
-      <div className="bg-bytebot-bronze-light-2 border-bytebot-bronze-light-7 hover:bg-bytebot-bronze-light-3 flex min-h-24 items-start rounded-lg border p-5 transition-colors">
+      <div className="glass hover:shadow-lg hover:bg-zen-white-1-80 flex min-h-24 items-start rounded-lg border border-zen-grey-light-2 p-5 transition-all duration-300">
         <div className="mb-0.5 flex-1 space-y-2">
           <div className="flex items-center justify-start space-x-2">
             <StatusIcon status={task.status} />
-            <div className="text-byhtebot-bronze-dark-7 text-sm font-medium">
+            <div className="text-zen-grey-dark-2 text-sm font-medium">
               {capitalizeFirstChar(task.description)}
             </div>
           </div>
           <div className="ml-7 flex items-center justify-start space-x-1.5 text-xs">
-            <span className="text-bytebot-bronze-light-10">
+            <span className="text-zen-grey-mid-2">
               {formatDate(task.createdAt)}
             </span>
           </div>

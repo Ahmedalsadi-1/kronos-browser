@@ -119,7 +119,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden">
+    <div className="flex h-screen flex-col overflow-hidden bg-gradient-to-br from-zen-white-1 via-zen-white-3 to-zen-white-5">
       <Header />
 
       <main className="flex flex-1 flex-col overflow-hidden">
@@ -128,13 +128,13 @@ export default function Home() {
           {/* Main content area */}
           <div className="flex flex-col items-center overflow-y-auto">
             <div className="flex w-full max-w-xl flex-col items-center">
-              <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="text-bytebot-bronze-light-12 mb-1 text-2xl">
+              <div className="mb-8 flex w-full flex-col items-start justify-start">
+                <h1 className="text-zen-grey-dark-1 mb-2 text-2xl font-light tracking-wide">
                   What can I help you get done?
                 </h1>
               </div>
-
-              <div className="bg-bytebot-bronze-light-2 border-bytebot-bronze-light-7 mb-10 w-full rounded-2xl border p-2">
+              
+              <div className="glass mb-10 w-full rounded-3xl border p-4 shadow-2xl">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}
@@ -143,7 +143,7 @@ export default function Home() {
                   onFileUpload={handleFileUpload}
                   minLines={3}
                 />
-                <div className="mt-2">
+                <div className="mt-3">
                   <Select
                     value={selectedModel?.name}
                     onValueChange={(val) =>
@@ -152,7 +152,7 @@ export default function Home() {
                       )
                     }
                   >
-                    <SelectTrigger className="w-auto">
+                    <SelectTrigger className="w-auto bg-zen-white-1-80 border-zen-grey-light-2">
                       <SelectValue placeholder="Select a model" />
                     </SelectTrigger>
                     <SelectContent>
@@ -165,7 +165,7 @@ export default function Home() {
                   </Select>
                 </div>
               </div>
-
+              
               <TaskList
                 className="w-full"
                 title="Latest Tasks"
@@ -173,18 +173,21 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* Logo area - centered in its grid cell */}
+          
+          {/* Logo area - centered hero element */}
           <div className="flex items-center justify-center px-6 pt-6">
-            <div className="flex h-full w-full max-w-md items-center justify-center xl:max-w-2xl">
-              <div className="relative h-96 w-96 animate-float">
-                <Image 
-                  src="/kronos-logo.png" 
-                  alt="Kronos Logo" 
-                  fill 
-                  className="object-contain drop-shadow-[0_0_30px_rgba(79,70,229,0.5)]" 
-                  priority 
-                />
+            <div className="flex h-full w-full max-w-lg items-center justify-center">
+              <div className="relative">
+                <div className="animate-ambient-glow absolute -inset-16 rounded-full opacity-30 blur-3xl bg-zen-grey-light-1"></div>
+                <div className="relative h-[500px] w-[500px]">
+                  <Image 
+                    src="/kronos-logo.png" 
+                    alt="Kronos Logo" 
+                    fill 
+                    className="object-contain drop-shadow-[0_20px_60px_rgba(31,31,31,0.3)]" 
+                    priority 
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -194,13 +197,13 @@ export default function Home() {
         <div className="flex h-full flex-col lg:hidden">
           <div className="flex flex-1 flex-col items-center overflow-y-auto px-4 pt-10">
             <div className="flex w-full max-w-xl flex-col items-center pb-10">
-              <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="text-bytebot-bronze-light-12 mb-1 text-2xl">
+              <div className="mb-8 flex w-full flex-col items-start justify-start">
+                <h1 className="text-zen-grey-dark-1 mb-2 text-2xl font-light tracking-wide">
                   What can I help you get done?
                 </h1>
               </div>
-
-              <div className="bg-bytebot-bronze-light-2 border-bytebot-bronze-light-5 borderw-full mb-10 rounded-2xl p-2">
+              
+              <div className="glass mb-10 w-full rounded-3xl border p-4 shadow-xl">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}
@@ -209,7 +212,7 @@ export default function Home() {
                   onFileUpload={handleFileUpload}
                   minLines={3}
                 />
-                <div className="mt-2">
+                <div className="mt-3">
                   <Select
                     value={selectedModel?.name}
                     onValueChange={(val) =>
@@ -218,7 +221,7 @@ export default function Home() {
                       )
                     }
                   >
-                    <SelectTrigger className="w-auto">
+                    <SelectTrigger className="w-auto bg-zen-white-1-80 border-zen-grey-light-2">
                       <SelectValue placeholder="Select a model" />
                     </SelectTrigger>
                     <SelectContent>
@@ -231,7 +234,7 @@ export default function Home() {
                   </Select>
                 </div>
               </div>
-
+              
               <TaskList
                 className="w-full"
                 title="Latest Tasks"

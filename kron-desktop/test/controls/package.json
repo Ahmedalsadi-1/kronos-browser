@@ -1,9 +1,0 @@
-{
-  "name": "browser-control",
-  "version": "1.0.0",
-  "description": "Browser control script using Socket.IO",
-  "main": "browser-control.js",
-  "dependencies": {
-    "socket.io-client": "^4.7.2"
-  }
-}

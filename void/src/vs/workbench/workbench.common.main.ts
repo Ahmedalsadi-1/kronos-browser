@@ -14,6 +14,7 @@ import './browser/workbench.contribution.js';
 
 //#region --- Void
 import './contrib/void/browser/void.contribution.js'; // Void added this
+import './contrib/zen-browser/zen-browser.contribution.js';
 //#endregion
 
 //#region --- workbench actions
