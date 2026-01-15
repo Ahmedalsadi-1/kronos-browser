@@ -1,0 +1,12 @@
+diff --git a/chrome/common/extensions/api/api_sources.gni b/chrome/common/extensions/api/api_sources.gni
+index 11358cf8b2d77..e147bedfa8744 100644
+--- a/chrome/common/extensions/api/api_sources.gni
++++ b/chrome/common/extensions/api/api_sources.gni
+@@ -70,6 +70,7 @@ if (enable_extensions) {
+     "autotest_private.idl",
+     "bookmark_manager_private.json",
+     "braille_display_private.idl",
++    "browser_os.idl",
+     "chrome_web_view_internal.json",
+     "command_line_private.json",
+     "content_settings.json",

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "BrowserOS Documentation",
+  "colors": {
+    "primary": "#f25e1a",
+    "light": "#FF7A3D",
+    "dark": "#D14E10"
+  },
+  "favicon": "/logo/favicon.png",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get Started",
+        "pages": [
+          "index",
+          "onboarding",
+          "update"
+        ]
+      },
+      {
+        "group": "Core Features",
+        "pages": [
+          "features/bring-your-own-llm",
+          "features/llm-chat-hub",
+          "features/scheduled-tasks",
+          "features/use-with-claude-code",
+          "features/ad-blocking"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/n8n"
+        ]
+      },
+      {
+        "group": "Contributing",
+        "pages": [
+          "contributing"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/logo44.png",
+    "dark": "/logo/logo44.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://discord.gg/YKwjt5vuKr"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download",
+      "href": "https://browseros.com"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/browseros_ai",
+      "github": "https://github.com/BrowserOS-ai/BrowserOS",
+      "discord": "https://discord.gg/YKwjt5vuKr",
+      "slack": "https://dub.sh/browserOS-slack"
+    }
+  }
+}

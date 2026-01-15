@@ -1,0 +1,61 @@
+diff --git a/chrome/browser/browseros/core/browseros_prefs.cc b/chrome/browser/browseros/core/browseros_prefs.cc
+new file mode 100644
+index 0000000000000..9ebd1e2429ac0
+--- /dev/null
++++ b/chrome/browser/browseros/core/browseros_prefs.cc
+@@ -0,0 +1,55 @@
++// Copyright 2025 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#include "chrome/browser/browseros/core/browseros_prefs.h"
++
++#include "chrome/browser/ui/actions/chrome_action_id.h"
++#include "components/pref_registry/pref_registry_syncable.h"
++
++namespace browseros {
++
++void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
++  // Toolbar visibility prefs
++  registry->RegisterBooleanPref(prefs::kShowLLMChat, true);
++  registry->RegisterBooleanPref(prefs::kShowLLMHub, true);
++  registry->RegisterBooleanPref(prefs::kShowToolbarLabels, true);
++
++  // AI Provider prefs
++  registry->RegisterStringPref(prefs::kProviders, "");
++  registry->RegisterStringPref(prefs::kCustomProviders, "[]");
++  registry->RegisterStringPref(prefs::kDefaultProviderId, "");
++}
++
++bool ShouldShowLLMChat(PrefService* pref_service) {
++  return pref_service->GetBoolean(prefs::kShowLLMChat);
++}
++
++bool ShouldShowLLMHub(PrefService* pref_service) {
++  return pref_service->GetBoolean(prefs::kShowLLMHub);
++}
++
++bool ShouldShowToolbarLabels(PrefService* pref_service) {
++  return pref_service->GetBoolean(prefs::kShowToolbarLabels);
++}
++
++const char* GetVisibilityPrefForAction(actions::ActionId id) {
++  switch (id) {
++    case kActionSidePanelShowThirdPartyLlm:
++      return prefs::kShowLLMChat;
++    case kActionSidePanelShowClashOfGpts:
++      return prefs::kShowLLMHub;
++    default:
++      return nullptr;
++  }
++}
++
++bool ShouldShowToolbarAction(actions::ActionId id, PrefService* pref_service) {
++  const char* pref_key = GetVisibilityPrefForAction(id);
++  if (!pref_key) {
++    return true;  // No pref means always show
++  }
++  return pref_service->GetBoolean(pref_key);
++}
++
++}  // namespace browseros

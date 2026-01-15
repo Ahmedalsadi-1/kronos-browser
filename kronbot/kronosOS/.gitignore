@@ -1,0 +1,24 @@
+**/.DS_Store
+.gcs_entries
+**/dmg
+**/env
+**/logs
+**/old-scripts
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.egg-info/
+**/*.egg
+**/.pytest_cache/
+**/dist/
+**/releases/
+**/.wrangler/
+**/node_modules/
+
+
+
+nxtscape-cli-access.json
+gclient.json
+.env

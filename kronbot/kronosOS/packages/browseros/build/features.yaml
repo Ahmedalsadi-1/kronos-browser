@@ -1,0 +1,415 @@
+version: "1.0"
+features:
+  chrome-version-updater:
+    description: "chore: chrome version update"
+    files:
+      - chrome/VERSION
+  adding-new-vector-icons:
+    description: "feat: custom vector icons"
+    files:
+      - components/vector_icons/BUILD.gn
+      - components/vector_icons/chat_orange.icon
+      - components/vector_icons/clash_of_gpts.icon
+  branding-file-updates:
+    description: "chore: browseros branding for file paths"
+    files:
+      - chrome/common/chrome_constants.cc
+      - chrome/common/chrome_paths_linux.cc
+      - chrome/install_static/chromium_install_modes.cc
+      - chrome/install_static/chromium_install_modes.h
+  branding-resources:
+    description: "chore: browseros branding resources and assets"
+    files:
+      - chrome/app/chromium_strings.grd
+      - chrome/app/settings_chromium_strings.grdp
+      - chrome/app/theme/
+      - chrome/enterprise_companion/branding.gni
+  mac-sparkle-updater:
+    description: "feat: mac sparkle updater"
+    files:
+      - chrome/BUILD.gn
+      - chrome/app/app-Info.plist
+      - chrome/browser/BUILD.gn
+      - chrome/browser/buildflags.gni
+      - chrome/browser/mac/chrome_browser_main_extra_parts_mac.h
+      - chrome/browser/mac/chrome_browser_main_extra_parts_mac.mm
+      - chrome/browser/mac/sparkle_glue.h
+      - chrome/browser/mac/sparkle_glue.mm
+      - chrome/browser/mac/su_updater.h
+      - chrome/browser/sparkle_buildflags.gni
+      - chrome/browser/ui/BUILD.gn
+      - chrome/browser/ui/toolbar/app_menu_icon_controller.cc
+      - chrome/browser/ui/views/relaunch_notification/relaunch_notification_controller.cc
+      - chrome/browser/ui/webui/help/sparkle_version_updater_mac.h
+      - chrome/browser/ui/webui/help/sparkle_version_updater_mac.mm
+      - chrome/browser/ui/webui/help/version_updater_mac.mm
+      - chrome/browser/upgrade_detector/upgrade_detector_impl.cc
+      - third_party/sparkle/BUILD.gn
+  settings-page:
+    description: "feat: settings page updates"
+    files:
+      - chrome/browser/extensions/api/settings_private/prefs_util.cc
+      - chrome/browser/prefs/browser_prefs.cc
+      - chrome/browser/prefs/browser_prefs.h
+      - chrome/browser/resources/settings/BUILD.gn
+      - chrome/browser/resources/settings/browseros_prefs_page/browseros_prefs_page.html
+      - chrome/browser/resources/settings/browseros_prefs_page/browseros_prefs_page.ts
+      - chrome/browser/resources/settings/nxtscape_page/models_data.html
+      - chrome/browser/resources/settings/nxtscape_page/models_data.ts
+      - chrome/browser/resources/settings/nxtscape_page/nxtscape_page.html
+      - chrome/browser/resources/settings/nxtscape_page/nxtscape_page.ts
+      - chrome/browser/resources/settings/route.ts
+      - chrome/browser/resources/settings/router.ts
+      - chrome/browser/resources/settings/settings.ts
+      - chrome/browser/resources/settings/settings_main/settings_main.html
+      - chrome/browser/resources/settings/settings_main/settings_main.ts
+      - chrome/browser/resources/settings/settings_menu/settings_menu.html
+      - chrome/browser/ui/views/toolbar/pinned_action_toolbar_button.cc
+      - chrome/browser/ui/views/toolbar/pinned_action_toolbar_button.h
+      - chrome/common/pref_names.h
+  api:
+    description: "feat: browseros API"
+    files:
+      - chrome/browser/extensions/BUILD.gn
+      - chrome/browser/extensions/api/browser_os/browser_os_api.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_api.h
+      - chrome/browser/extensions/api/browser_os/browser_os_api_helpers.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_api_helpers.h
+      - chrome/browser/extensions/api/browser_os/browser_os_api_utils.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_api_utils.h
+      - chrome/browser/extensions/api/browser_os/browser_os_change_detector.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_change_detector.h
+      - chrome/browser/extensions/api/browser_os/browser_os_content_processor.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_content_processor.h
+      - chrome/browser/extensions/api/browser_os/browser_os_snapshot_processor.cc
+      - chrome/browser/extensions/api/browser_os/browser_os_snapshot_processor.h
+      - chrome/browser/extensions/api/side_panel/side_panel_api.h
+      - chrome/browser/extensions/api/side_panel/side_panel_service.cc
+      - chrome/browser/extensions/api/side_panel/side_panel_service.h
+      - chrome/browser/extensions/chrome_extensions_browser_api_provider.cc
+      - chrome/browser/media/extension_media_access_handler.cc
+      - chrome/browser/ui/extensions/extension_side_panel_utils.h
+      - chrome/browser/ui/views/side_panel/extensions/extension_side_panel_utils.cc
+      - chrome/common/extensions/api/_api_features.json
+      - chrome/common/extensions/api/_permission_features.json
+      - chrome/common/extensions/api/api_sources.gni
+      - chrome/common/extensions/api/browser_os.idl
+      - chrome/common/extensions/api/side_panel.idl
+      - chrome/common/extensions/permissions/chrome_api_permissions.cc
+      - extensions/browser/extension_function_histogram_value.h
+      - extensions/common/mojom/api_permission_id.mojom
+      - tools/metrics/histograms/metadata/extensions/enums.xml
+  server:
+    description: "feat: browseros server"
+    files:
+      - base/threading/thread_restrictions.h
+      - chrome/browser/browseros/server/BUILD.gn
+      - chrome/browser/browseros/server/browseros_server_manager.cc
+      - chrome/browser/browseros/server/browseros_server_manager.h
+      - chrome/browser/browseros/server/browseros_server_prefs.cc
+      - chrome/browser/browseros/server/browseros_server_prefs.h
+      - chrome/browser/browseros/server/resources/bin/browseros_server
+      - chrome/browser/browseros/server/validate_resources.py
+  metrics:
+    description: "feat: browseros metrics"
+    files:
+      - chrome/browser/browseros/metrics/BUILD.gn
+      - chrome/browser/browseros/metrics/browseros_metrics.cc
+      - chrome/browser/browseros/metrics/browseros_metrics.h
+      - chrome/browser/browseros/metrics/browseros_metrics_prefs.cc
+      - chrome/browser/browseros/metrics/browseros_metrics_prefs.h
+      - chrome/browser/browseros/metrics/browseros_metrics_service.cc
+      - chrome/browser/browseros/metrics/browseros_metrics_service.h
+      - chrome/browser/browseros/metrics/browseros_metrics_service_factory.cc
+      - chrome/browser/browseros/metrics/browseros_metrics_service_factory.h
+      - chrome/browser/metrics/chrome_metrics_service_client.cc
+      - chrome/browser/prefs/browser_prefs.cc
+      - chrome/browser/profiles/chrome_browser_main_extra_parts_profiles.cc
+      - chrome/browser/ui/BUILD.gn
+      - chrome/browser/ui/webui/settings/browseros_metrics_handler.cc
+      - chrome/browser/ui/webui/settings/browseros_metrics_handler.h
+      - chrome/browser/ui/webui/settings/settings_ui.cc
+      - chrome/common/pref_names.h
+  ota-updater:
+    description: "feat: extensions ota updater"
+    files:
+      - chrome/browser/extensions/BUILD.gn
+      - chrome/browser/extensions/api/developer_private/extension_info_generator_shared.cc
+      - chrome/browser/browseros/core/browseros_constants.h
+      - chrome/browser/extensions/browseros_external_loader.cc
+      - chrome/browser/extensions/browseros_external_loader.h
+      - chrome/browser/extensions/chrome_extension_registrar_delegate.cc
+      - chrome/browser/extensions/extension_web_ui_override_registrar.cc
+      - chrome/browser/extensions/external_provider_impl.cc
+      - chrome/browser/ui/extensions/settings_overridden_params_providers.cc
+  chrome-importer:
+    description: "feat: chrome importer"
+    files:
+      - chrome/app/settings_strings.grdp
+      - chrome/browser/extensions/api/settings_private/prefs_util.cc
+      - chrome/browser/importer/external_process_importer_client.cc
+      - chrome/browser/importer/external_process_importer_client.h
+      - chrome/browser/importer/importer_list.cc
+      - chrome/browser/importer/in_process_importer_bridge.cc
+      - chrome/browser/importer/in_process_importer_bridge.h
+      - chrome/browser/importer/profile_writer.cc
+      - chrome/browser/importer/profile_writer.h
+      - chrome/browser/resources/settings/people_page/import_data_browser_proxy.ts
+      - chrome/browser/resources/settings/people_page/import_data_dialog.html
+      - chrome/browser/ui/webui/settings/import_data_handler.cc
+      - chrome/browser/ui/webui/settings/settings_localized_strings_provider.cc
+      - chrome/browser/ui/webui/settings/settings_ui.cc
+      - chrome/common/importer/importer_bridge.h
+      - chrome/common/importer/profile_import.mojom
+      - chrome/common/importer/profile_import_process_param_traits.cc
+      - chrome/common/importer/profile_import_process_param_traits.h
+      - chrome/common/pref_names.h
+      - chrome/utility/BUILD.gn
+      - chrome/utility/importer/browseros/
+      - chrome/utility/importer/external_process_importer_bridge.cc
+      - chrome/utility/importer/external_process_importer_bridge.h
+      - chrome/utility/importer/importer_creator.cc
+      - components/user_data_importer/common/importer_data_types.h
+  default-light-mode:
+    description: "feat: enable light mode as default theme"
+    files:
+      - chrome/browser/themes/theme_service_factory.cc
+  disable-chrome-labs-pinning:
+    description: "fix: disable chrome labs pinning"
+    files:
+      - chrome/browser/ui/toolbar/pinned_toolbar/pinned_toolbar_actions_model.cc
+      - chrome/browser/ui/toolbar/toolbar_pref_names.cc
+  disable-google-key-info-bar:
+    description: "fix: disable google API key infobar"
+    files:
+      - chrome/browser/ui/startup/google_api_keys_infobar_delegate.cc
+  disable-info-bar-in-cdp:
+    description: "fix: disable infobar in CDP debugger"
+    files:
+      - chrome/browser/extensions/api/debugger/debugger_api.cc
+  disable-sidepanel-animation:
+    description: "fix: disable sidepanel animation"
+    files:
+      - chrome/browser/ui/views/side_panel/side_panel.cc
+      - chrome/browser/ui/views/side_panel/side_panel.h
+  disable-user-gesture-restriction-on-sidepanel:
+    description: "fix: disable user gesture restriction on sidepanel"
+    files:
+      - chrome/browser/extensions/api/side_panel/side_panel_api.cc
+  first-run:
+    description: "feat: first run experience"
+    files:
+      - chrome/browser/chrome_browser_main.cc
+      - chrome/browser/ui/webui/chrome_web_ui_configs.cc
+      - chrome/browser/ui/webui/nxtscape_first_run.h
+      - chrome/common/webui_url_constants.cc
+  llm-chat:
+    description: "feat: llm chat side panel"
+    files:
+      - chrome/app/chrome_command_ids.h
+      - chrome/app/generated_resources.grd
+      - chrome/browser/global_keyboard_shortcuts_mac.mm
+      - chrome/browser/ui/actions/chrome_action_id.h
+      - chrome/browser/ui/browser_actions.cc
+      - chrome/browser/ui/browser_command_controller.cc
+      - chrome/browser/ui/toolbar/toolbar_pref_names.cc
+      - chrome/browser/ui/ui_features.cc
+      - chrome/browser/ui/ui_features.h
+      - chrome/browser/ui/views/accelerator_table.cc
+      - chrome/browser/ui/views/side_panel/BUILD.gn
+      - chrome/browser/ui/views/side_panel/browseros_simple_page_extractor.cc
+      - chrome/browser/ui/views/side_panel/browseros_simple_page_extractor.h
+      - chrome/browser/ui/views/side_panel/side_panel_entry_id.h
+      - chrome/browser/ui/views/side_panel/side_panel_prefs.cc
+      - chrome/browser/ui/views/side_panel/side_panel_util.cc
+      - chrome/browser/ui/views/side_panel/third_party_llm/third_party_llm_panel_coordinator.cc
+      - chrome/browser/ui/views/side_panel/third_party_llm/third_party_llm_panel_coordinator.h
+      - chrome/browser/ui/views/side_panel/third_party_llm/third_party_llm_view.cc
+      - chrome/browser/ui/views/side_panel/third_party_llm/third_party_llm_view.h
+      - chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar.mojom
+      - chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar_handler.cc
+  llm-hub:
+    description: "feat: llm hub side panel"
+    files:
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_coordinator.cc
+      - chrome/app/chrome_command_ids.h
+      - chrome/app/generated_resources.grd
+      - chrome/browser/global_keyboard_shortcuts_mac.mm
+      - chrome/browser/ui/actions/chrome_action_id.h
+      - chrome/browser/ui/browser_actions.cc
+      - chrome/browser/ui/browser_command_controller.cc
+      - chrome/browser/ui/toolbar/toolbar_pref_names.cc
+      - chrome/browser/ui/ui_features.cc
+      - chrome/browser/ui/ui_features.h
+      - chrome/browser/ui/views/accelerator_table.cc
+      - chrome/browser/ui/views/side_panel/BUILD.gn
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_coordinator.cc
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_coordinator.h
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_view.cc
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_view.h
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_window.cc
+      - chrome/browser/ui/views/side_panel/clash_of_gpts/clash_of_gpts_window.h
+      - chrome/browser/ui/views/side_panel/side_panel_entry_id.h
+      - chrome/browser/ui/views/side_panel/side_panel_prefs.cc
+      - chrome/browser/ui/views/side_panel/side_panel_util.cc
+      - chrome/browser/ui/views/toolbar/pinned_action_toolbar_button.cc
+      - chrome/browser/ui/webui/BUILD.gn
+      - chrome/browser/ui/webui/chrome_web_ui_configs.cc
+      - chrome/browser/ui/webui/clash_of_gpts/clash_of_gpts_ui.cc
+      - chrome/browser/ui/webui/clash_of_gpts/clash_of_gpts_ui.h
+      - chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar.mojom
+      - chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar_handler.cc
+      - chrome/common/webui_url_constants.h
+  pin-chat-and-hub:
+    description: "feat: pin browseros native panels"
+    files:
+      - chrome/browser/browseros/core/browseros_constants.h
+      - chrome/browser/sync/prefs/chrome_syncable_prefs_database.cc
+      - chrome/browser/ui/actions/browseros_actions_config.h
+      - chrome/browser/ui/toolbar/pinned_toolbar/pinned_toolbar_actions_model.cc
+      - chrome/browser/ui/toolbar/pinned_toolbar/pinned_toolbar_actions_model.h
+      - chrome/browser/ui/toolbar/toolbar_pref_names.cc
+      - chrome/browser/ui/toolbar/toolbar_pref_names.h
+      - chrome/browser/ui/views/toolbar/pinned_action_toolbar_button.cc
+      - chrome/browser/ui/views/toolbar/pinned_toolbar_actions_container.cc
+  pin-extensions-toolbar:
+    description: "feat: pin browseros extensions to toolbar"
+    files:
+      - chrome/browser/extensions/api/side_panel/side_panel_service.cc
+      - chrome/browser/browseros/core/browseros_constants.h
+      - chrome/browser/extensions/extension_context_menu_model.cc
+      - chrome/browser/extensions/extension_management.cc
+      - chrome/browser/ui/actions/browseros_actions_config.h
+      - chrome/browser/ui/actions/chrome_action_id.h
+      - chrome/browser/ui/browser_actions.cc
+      - chrome/browser/ui/toolbar/toolbar_actions_model.cc
+      - chrome/browser/ui/views/side_panel/extensions/extension_side_panel_manager.cc
+      - chrome/browser/ui/views/side_panel/side_panel_action_callback.cc
+      - chrome/browser/ui/views/side_panel/side_panel_action_callback.h
+  ui-fixes:
+    description: "fix: chromium ui fixes"
+    files:
+      - chrome/browser/about_flags.cc
+      - chrome/browser/browser_features.cc
+      - chrome/browser/browser_features.h
+      - chrome/browser/chrome_content_browser_client.cc
+      - chrome/browser/net/profile_network_context_service.cc
+      - chrome/browser/resources/settings/about_page/about_page.html
+      - chrome/browser/resources/settings/about_page/about_page.ts
+      - chrome/browser/resources/settings/reset_page/reset_profile_dialog.html
+      - chrome/browser/ui/browser_ui_prefs.cc
+      - chrome/browser/ui/views/chrome_layout_provider.cc
+      - chrome/browser/ui/views/infobars/infobar_container_view.cc
+      - chrome/browser/ui/views/new_tab_footer/
+      - chrome/browser/ui/views/new_tab_footer/footer_controller.cc
+      - chrome/browser/ui/webui/new_tab_footer/
+      - chrome/browser/ui/webui/new_tab_footer/new_tab_footer_ui.cc
+      - chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar_handler_unittest.cc
+      - components/bookmarks/browser/bookmark_utils.cc
+      - components/content_settings/core/browser/cookie_settings.cc
+      - components/payments/core/payment_prefs.cc
+      - components/performance_manager/user_tuning/prefs.cc
+      - components/search/ntp_features.cc
+  browseros-version:
+    description: "chore: browseros version info"
+    files:
+      - base/version_info/BUILD.gn
+      - base/version_info/version_info.h
+      - base/version_info/version_info_values.h.version
+      - chrome/BROWSEROS_VERSION
+      - chrome/browser/resources/settings/about_page/about_page.html
+      - chrome/browser/ui/webui/settings/settings_localized_strings_provider.cc
+  misc:
+    description: "chore: miscellaneous patches"
+    files:
+      - chrome/browser/browseros_server/.gitignore
+      - chrome/browser/ui/omnibox/chrome_omnibox_client.cc
+      - chrome/browser/ui/profiles/profile_error_dialog.cc
+      - chrome/browser/ui/startup/infobar_utils.cc
+      - chrome/installer/mini_installer/chrome.release
+      - chrome/updater/branding.gni
+      - extensions/browser/process_manager.cc
+      - extensions/browser/process_manager.h
+      - third_party/blink/renderer/core/frame/navigator.cc
+  flags:
+    description: "feat: browser flags"
+    files:
+      - chrome/browser/flag_descriptions.cc
+      - chrome/browser/flag_descriptions.h
+      - chrome/browser/ui/browser_window/internal/browser_window_features.cc
+      - chrome/browser/ui/browser_window/public/browser_window_features.h
+  keyboard-shorcuts:
+    description: "feat: keyboard shortcuts"
+    files:
+      - chrome/browser/global_keyboard_shortcuts_mac.mm
+      - chrome/browser/ui/accelerator_table.cc
+  chromium-urls:
+    description: "feat: chromium urls for browseros"
+    files:
+      - chrome/browser/chrome_content_browser_client.cc
+      - chrome/browser/browseros/core/browseros_constants.h
+      - chrome/browser/resources/settings/route.ts
+      - chrome/browser/resources/settings/router.ts
+      - chrome/browser/ui/browser_commands.cc
+      - chrome/browser/ui/omnibox/chrome_omnibox_client.cc
+  extensions-manifestv2:
+    description: "series: ungoogled-chromium manifest v2 extensions support"
+    files:
+      - chrome/browser/extensions/api/developer_private/extension_info_generator.cc
+      - chrome/browser/extensions/extension_management.cc
+      - chrome/browser/extensions/manifest_v2_experiment_manager.cc
+      - chrome/browser/ui/webui/extensions/extensions_ui.cc
+      - extensions/common/extension.cc
+  windows-disable-rcpy:
+    description: "series: windows disable rcpy"
+    files:
+      - build/toolchain/win/tool_wrapper.py
+      - chrome/app/chrome_dll.rc
+      - chrome/app/chrome_exe.rc
+      - chrome/installer/setup/setup.rc
+  windows-fix-rc:
+    description: "series: windows rc resources"
+    files:
+      - chrome/browser/web_applications/chrome_pwa_launcher/chrome_pwa_launcher_exe.rc
+  windows-fix-command-ids:
+    description: "series: windows command ids"
+    files:
+      - chrome/app/chrome_command_ids.h
+  windows-disable-download-warning-prompt:
+    description: "series: windows disable download warning prompt"
+    files:
+      - components/download/internal/common/download_item_impl.cc
+  windows-fix-rc-terminating-error:
+    description: "series: windows rc terminating error"
+    files:
+      - build/build_config.h
+  agent-v2-infobar:
+    description: "fix: show infobar if agent v2 is installing/updating"
+    files:
+      - chrome/browser/ui/browser_actions.cc
+      - chrome/browser/ui/browser_command_controller.cc
+      - components/infobars/core/infobar_delegate.h
+      - tools/metrics/histograms/metadata/browser/enums.xml
+  new-browseros-dir:
+    description: "chore: chrome/browser/browseros folder structure"
+    files:
+      - chrome/browser/browseros/BUILD.gn
+      - chrome/browser/browseros/core/BUILD.gn
+  disable-cdp-notifications:
+    description: "fix: disable cdp notification for attach/detatch"
+    files:
+      - content/browser/devtools/protocol/target_handler.cc
+  browseros-server-ota:
+    description: "feat: browseros-server ota updater"
+    files:
+      - chrome/browser/browseros/server/BUILD.gn
+      - chrome/browser/browseros/server/browseros_appcast_parser.cc
+      - chrome/browser/browseros/server/browseros_appcast_parser.h
+      - chrome/browser/browseros/server/browseros_server_constants.h
+      - chrome/browser/browseros/server/browseros_server_manager.cc
+      - chrome/browser/browseros/server/browseros_server_manager.h
+      - chrome/browser/browseros/server/browseros_server_prefs.cc
+      - chrome/browser/browseros/server/browseros_server_prefs.h
+      - chrome/browser/browseros/server/browseros_server_updater.cc
+      - chrome/browser/browseros/server/browseros_server_updater.h
+      - third_party/libxml/BUILD.gn

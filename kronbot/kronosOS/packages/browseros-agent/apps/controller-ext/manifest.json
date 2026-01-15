@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Kronbot Controller",
+  "version": "1.0.0.8",
+  "description": "Kronbot API bridge for Kronbot Server",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "bookmarks",
+    "history",
+    "scripting",
+    "storage",
+    "tabGroups",
+    "webNavigation",
+    "downloads",
+    "alarms"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "applications": {
+    "gecko": {
+      "id": "kronbot-controller@kronos.os"
+    }
+  }
+}

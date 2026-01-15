@@ -1,0 +1,83 @@
+diff --git a/chrome/browser/browseros/server/BUILD.gn b/chrome/browser/browseros/server/BUILD.gn
+new file mode 100644
+index 0000000000000..711d6896d6c4a
+--- /dev/null
++++ b/chrome/browser/browseros/server/BUILD.gn
+@@ -0,0 +1,77 @@
++# Copyright 2024 The Chromium Authors
++# Use of this source code is governed by a BSD-style license that can be
++# found in the LICENSE file.
++
++import("//build/config/chrome_build.gni")
++
++# Validate that required resources exist at build time
++# GN will fail at generation time if resources/bin/browseros_server is missing
++_browseros_binary_name = "browseros_server"
++if (is_win) {
++  _browseros_binary_name += ".exe"
++}
++
++action("validate_browseros_resources") {
++  script = "validate_resources.py"
++  inputs = [ "resources/bin/${_browseros_binary_name}" ]
++  outputs = [ "$target_gen_dir/browseros_resources_validated" ]
++}
++
++source_set("server") {
++  sources = [
++    "browseros_appcast_parser.cc",
++    "browseros_appcast_parser.h",
++    "browseros_server_constants.h",
++    "browseros_server_manager.cc",
++    "browseros_server_manager.h",
++    "browseros_server_prefs.cc",
++    "browseros_server_prefs.h",
++    "browseros_server_updater.cc",
++    "browseros_server_updater.h",
++  ]
++
++  deps = [
++    "//base",
++    "//chrome/browser:browser_process",
++    "//chrome/browser/browseros/metrics",
++    "//chrome/common",
++    "//components/prefs",
++    "//content/public/browser",
++    "//crypto",
++    "//net",
++    "//services/network/public/cpp",
++    "//third_party/boringssl",
++    "//third_party/libxml:xml_reader",
++    "//third_party/zlib/google:zip",
++  ]
++}
++
++if (is_mac) {
++  import("//build/config/apple/symbols.gni")
++  import("//build/config/mac/mac_sdk.gni")
++
++  # Bundle data for macOS - recursively packages resources/ to Resources/BrowserOSServer/default/
++  bundle_data("browseros_resources_bundle") {
++    sources = [ "resources" ]
++    outputs = [ "{{bundle_resources_dir}}/BrowserOSServer/default/{{source_file_part}}" ]
++    # TODO: Re-enable validation when resources/bin/browseros_server is available
++    # deps = [ ":validate_browseros_resources" ]
++  }
++} else {
++  # Copy for Windows/Linux - recursively packages resources/ to <exe_dir>/BrowserOSServer/default/
++  copy("browseros_resources_copy") {
++    sources = [ "resources" ]
++    outputs = [ "$root_out_dir/BrowserOSServer/default/{{source_file_part}}" ]
++    # TODO: Re-enable validation when resources/bin/browseros_server is available
++    # deps = [ ":validate_browseros_resources" ]
++  }
++}
++
++# Group for all BrowserOS server resources
++group("browseros_server_resources") {
++  if (is_mac) {
++    deps = [ ":browseros_resources_bundle" ]
++  } else {
++    deps = [ ":browseros_resources_copy" ]
++  }
++}

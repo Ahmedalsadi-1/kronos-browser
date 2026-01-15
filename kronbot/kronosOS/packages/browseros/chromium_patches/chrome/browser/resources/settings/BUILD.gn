@@ -1,0 +1,14 @@
+diff --git a/chrome/browser/resources/settings/BUILD.gn b/chrome/browser/resources/settings/BUILD.gn
+index c364fbf73290e..48b8de6d3febf 100644
+--- a/chrome/browser/resources/settings/BUILD.gn
++++ b/chrome/browser/resources/settings/BUILD.gn
+@@ -59,6 +59,9 @@ build_webui("build") {
+     "a11y_page/a11y_page.ts",
+     "a11y_page/a11y_page_index.ts",
+     "about_page/about_page.ts",
++    "nxtscape_page/models_data.ts",
++    "nxtscape_page/nxtscape_page.ts",
++    "browseros_prefs_page/browseros_prefs_page.ts",
+     "ai_page/ai_compare_subpage.ts",
+     "ai_page/ai_info_card.ts",
+     "ai_page/ai_logging_info_bullet.ts",
