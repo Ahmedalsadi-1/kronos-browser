@@ -1,0 +1,59 @@
+---
+title: "Scheduled Tasks"
+description: "Run the BrowserOS agent automatically on a schedule"
+---
+
+Scheduled Tasks let you run the BrowserOS agent automatically—daily, every few hours, or every few minutes. You get the full power of the agent running on autopilot.
+
+## Creating a Scheduled Task
+
+1. Go to **Settings → Scheduled Tasks**
+2. Click **Create Task**
+3. Fill in the details:
+   - **Name** — A friendly name for your task
+   - **Prompt** — What you want the agent to do
+   - **Schedule** — Daily at a specific time, every N hours, or every N minutes
+4. Click **Create**
+
+<img src="/images/features--scheduled-tasks-create.png" alt="Create scheduled task dialog" />
+
+## Example Use Cases
+
+**Morning briefing**
+> Every morning at 8am, check my Google Calendar and send me a summary of today's events. For each meeting, do a quick Google search on the attendees and include their LinkedIn summary.
+
+**LinkedIn automation**
+> Every day, go to LinkedIn and accept up to 25 pending connection requests.
+
+**Price monitoring**
+> Check the price of this Amazon item every hour. If it drops below $50, place the order.
+
+## Viewing Results
+
+When a scheduled task runs, you can see the results in two places:
+
+- **New Tab page** — Results show up right on your new tab
+- **Settings → Scheduled Tasks** — View the full run history for each task
+
+<img src="/images/features--scheduled-tasks-results.png" alt="Scheduled task results" />
+
+Click **View** on any task run to see the full output:
+
+<img src="/images/features--scheduled-tasks-output.png" alt="Scheduled task output showing a daily news briefing" />
+
+## How It Works
+
+Scheduled tasks run in a background window, so they don't interrupt whatever you're working on. You won't even notice them running.
+
+<Note>
+BrowserOS needs to be open for scheduled tasks to run. If your laptop was closed or BrowserOS wasn't running at the scheduled time, the task will run as soon as you open BrowserOS again.
+</Note>
+
+## Pro Tip: Complex Prompts with MCPs
+
+Your scheduled task prompts can be as complex as you want. If you connect MCP servers (like Google Calendar, Slack, Notion, or Gmail), you can create powerful automated workflows.
+
+For example:
+> Check my Google Calendar for tomorrow's meetings, then post a summary to my Slack channel, and create a Notion page with prep notes for each meeting.
+
+See [Connect to MCPs](/features/connect-mcps) to set up your integrations.

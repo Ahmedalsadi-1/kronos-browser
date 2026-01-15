@@ -12,6 +12,7 @@
         }
 
         :root {
+            /* Original Colors */
             --bg-primary: #050507;
             --bg-secondary: #0a0a0f;
             --bg-tertiary: #12121a;
@@ -27,6 +28,91 @@
             --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
             --gradient-2: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             --gradient-3: linear-gradient(180deg, rgba(139, 92, 246, 0.3) 0%, transparent 100%);
+
+            /* Design Tokens - Spacing System */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            --space-4xl: 8rem;
+
+            /* Design Tokens - Typography Scale */
+            --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 2rem;
+            --text-4xl: 2.5rem;
+            --text-5xl: 3.5rem;
+
+            /* Design Tokens - Border Radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg:1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+
+            /* Design Tokens - Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Zen Light Theme Colors */
+            --zen-paper: #f2f0e3;
+            --zen-coral: #f76f53;
+            --zen-dark: #2e2e2e;
+            --zen-muted: rgba(46, 46, 46, 0.08);
+            --zen-subtle: rgba(46, 46, 46, 0.05);
+
+            /* Semantic Colors */
+            --color-success: #22c55e;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+            --color-info: #3b82f6;
+
+            /* Opacity Scales */
+            --opacity-muted: rgba(255,255,255, 0.4);
+            --opacity-subtle: rgba(255,255,255, 0.7);
+            --opacity-solid: rgba(255,255,255, 1);
+        }
+
+        /* Dark Theme (Default) */
+        [data-theme="dark"] {
+            --bg-primary: #050507;
+            --bg-secondary: #0a0a0f;
+            --bg-tertiary: #12121a;
+            --bg-card: rgba(20, 20, 30, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        /* Zen Light Theme */
+        [data-theme="zen-light"] {
+            --bg-primary: var(--zen-paper);
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e8e6e2;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text-primary: var(--zen-dark);
+            --text-secondary: rgba(46, 46, 46, 0.7);
+            --text-muted: rgba(46, 46, 46, 0.5);
+            --border-color: rgba(46, 46, 46, 0.15);
+            --accent-primary: var(--zen-coral);
+            --accent-secondary: #ec4899;
+            --accent-glow: rgba(247, 111, 83, 0.3);
+            --gradient-1: linear-gradient(135deg, #f76f53 0%, #ec4899 50%, #f59e0b 100%);
+            --gradient-2: linear-gradient(135deg, #6287f5 0%, #f76f53 50%, #ec4899 100%);
+            --gradient-3: linear-gradient(180deg, rgba(247, 111, 83, 0.15) 0%, transparent 100%);
         }
 
         html {
@@ -320,6 +406,116 @@
             line-height: 1.8;
         }
 
+        /* Animated Headlines */
+        .animated-text {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            width: 100%;
+        }
+
+        .animated-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Terminal Demo */
+        .terminal-demo {
+            margin: var(--space-xl) auto;
+            position: relative;
+        }
+
+        .terminal-window {
+            background: #1e1e1e;
+            border-radius: var(--radius-lg);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.5),
+                0 0 1px rgba(255, 255, 255, 0.1) inset;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            max-width: 700px;
+            margin: 0 auto;
+            font-family: var(--font-mono);
+        }
+
+        .terminal-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: var(--space-sm) var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dots .dot.red { background: #ff5f57; }
+        .terminal-dots .dot.yellow { background: #febc2e; }
+        .terminal-dots .dot.green { background: #28c840; }
+
+        .terminal-title {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: var(--space-lg) var(--space-md);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        .terminal-line {
+            display: flex;
+            gap: var(--space-2);
+            padding: var(--space-1) 0;
+            align-items: flex-start;
+        }
+
+        .terminal-line .prompt {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .terminal-line .command {
+            color: var(--text-primary);
+        }
+
+        .terminal-line .output {
+            color: var(--color-success);
+        }
+
+        .terminal-line .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background: var(--accent-primary);
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
         .hero-buttons {
             display: flex;
             gap: 1.25rem;
@@ -335,13 +531,14 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.4s ease;
+            transition: all var(--transition-base);
             box-shadow: 0 4px 30px rgba(139, 92, 246, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            transform-origin: center;
         }
 
         .btn-primary::before {
@@ -364,6 +561,16 @@
             box-shadow: 0 10px 50px rgba(139, 92, 246, 0.5);
         }
 
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(139, 92, 246, 0.3);
@@ -373,8 +580,9 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.4s ease;
+            transition: all var(--transition-base);
             backdrop-filter: blur(10px);
+            transform-origin: center;
         }
 
         .btn-secondary:hover {
@@ -382,6 +590,15 @@
             border-color: var(--accent-primary);
             transform: translateY(-3px);
             box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-secondary:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
         }
 
         /* Scroll Indicator */
@@ -471,10 +688,11 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2.5rem;
-            transition: all 0.4s ease;
+            transition: all var(--transition-base);
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(20px);
+            transform-origin: center;
         }
 
         .feature-card::before {
@@ -503,6 +721,11 @@
             transform: translateY(-8px);
             border-color: var(--accent-primary);
             box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-card:focus-within {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 4px;
         }
 
         .feature-card:hover::before,
@@ -1119,6 +1342,193 @@
             transform: translateY(-3px);
         }
 
+        /* Terminal Integration Section */
+        .terminal-section {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .terminal-showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .terminal-showcase {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .terminal-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-3xl);
+        }
+
+        .terminal-feature {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            transition: all var(--transition-base);
+        }
+
+        .terminal-feature:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .terminal-feature h3 {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .terminal-feature p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* VM Orchestration Section */
+        .vm-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-3xl);
+        }
+
+        .vm-card {
+            background: var(--bg-card);
+            border: 2px solid var(--vm-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .vm-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .vm-icon {
+            font-size: 2rem;
+        }
+
+        .vm-label {
+            font-size: var(--text-base);
+            font-weight: 600;
+        }
+
+        .vm-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.running { background: var(--color-success); }
+        .status-dot.testing { background: var(--color-warning); }
+        .status-dot.idle { background: var(--color-info); }
+
+        .vm-metrics {
+            margin: var(--space-lg) 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+
+        .vm-metric {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .metric-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-value {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .vm-actions {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .vm-btn {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .vm-btn:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .vm-btn.primary {
+            background: var(--gradient-2);
+            color: white;
+            border: none;
+        }
+
+        .vm-btn.primary:hover {
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .vm-btn.action {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .vm-btn.action:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .arch-grid {
@@ -1168,6 +1578,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .terminal-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
+
             .pricing-card.featured {
                 transform: scale(1);
             }
@@ -1197,6 +1615,37 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--space-2);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-lg);
+            transition: transform var(--transition-fast);
+        }
+
+        .theme-toggle:hover .theme-icon {
+            transform: rotate(180deg);
         }
 
         /* Particles */
@@ -1265,7 +1714,12 @@
                 <li><a href="#security">Security</a></li>
                 <li><a href="#pricing">Pricing</a></li>
             </ul>
-            <a href="#pricing" class="nav-cta">Get Started</a>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="#pricing" class="nav-cta">Get Started</a>
+            </div>
         </div>
     </nav>
 
@@ -1279,11 +1733,60 @@
                 <span class="hero-badge-dot"></span>
                 Now Available for Early Access
             </div>
-            <h1 class="hero-title reveal">The Future of Intelligent Browsing</h1>
+
+            <!-- Animated Headlines -->
+            <h1 class="hero-title reveal">
+                <span class="animated-text active" data-text="Browser Automation">
+                    Control Your Browser
+                </span>
+                <span class="animated-text" data-text="Terminal Power">
+                    Master Your Terminal
+                </span>
+                <span class="animated-text" data-text="VM Orchestration">
+                    Orchestrate Virtual Machines
+                </span>
+                <span class="animated-text" data-text="AI Intelligence">
+                    Unleash AI Capabilities
+                </span>
+            </h1>
+
+            <!-- Terminal Demo -->
+            <div class="terminal-demo reveal">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">kronos@~ %</span>
+                        <div class="terminal-controls">
+                            <span>—</span>
+                            <span>□</span>
+                            <span>✕</span>
+                        </div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command" id="typewriter1">kronos start --agent browser-automation</span>
+                        </div>
+                        <div class="terminal-line success">
+                            <span class="output">✓ Agent started on port 9100</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command" id="typewriter2">kronos exec --script "automate-github.js"</span>
+                            <span class="cursor" id="cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <p class="hero-subtitle reveal">
-                Experience the next generation of web browsing with KRONOS-OS. An intelligent browser 
-                ecosystem powered by advanced AI, designed to transform how you interact with the web.
+                The only browser that bridges terminal, VMs, and AI automation with a modern, polished experience.
             </p>
+
             <div class="hero-buttons reveal">
                 <a href="#pricing" class="btn-primary">
                     <span>Download Now</span>
@@ -1468,6 +1971,174 @@
                                 <p>The intelligent browser with AI-powered automation</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Integration Section -->
+    <section class="terminal-section section" id="terminal">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">Terminal Integration</span>
+                <h2 class="section-title">Control Everything from Your Terminal</h2>
+                <p class="section-subtitle">
+                    KRONOS-OS brings browser control to your command line. Automate tasks, manage VMs, and orchestrate AI agents with CLI commands.
+                </p>
+            </div>
+
+            <div class="terminal-showcase">
+                <div class="terminal-window reveal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">Terminal</span>
+                        <div class="terminal-controls">
+                            <span>—</span>
+                            <span>□</span>
+                            <span>✕</span>
+                        </div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">kronos start --agent browser-control</span>
+                        </div>
+                        <div class="terminal-line success">
+                            <span class="output">✓ Browser agent connected on port 9100</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">kronos vm list</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span>• Primary VM: Running (PID: 12345)</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span>• Sandbox VM: Idle</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span>• Isolated Environment: Ready</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">kronos exec --url "github.com/kronos-browser" --action automate</span>
+                        </div>
+                        <div class="terminal-line success">
+                            <span class="output">✓ Automation workflow started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-features reveal">
+                    <div class="terminal-feature">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Instant Commands</h3>
+                        <p>Execute browser actions with simple CLI commands. No complex APIs required.</p>
+                    </div>
+                    <div class="terminal-feature">
+                        <span class="feature-icon">🔄</span>
+                        <h3>Workflow Automation</h3>
+                        <p>Create scripts that automate repetitive browsing and testing tasks.</p>
+                    </div>
+                    <div class="terminal-feature">
+                        <span class="feature-icon">🔐</span>
+                        <h3>Secure by Default</h3>
+                        <p>Local processing with end-to-end encryption. No data leaves your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VM Orchestration Section -->
+    <section class="vm-section section" id="vm">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">VM Orchestration</span>
+                <h2 class="section-title">Manage Virtual Machines Like a Pro</h2>
+                <p class="section-subtitle">
+                    Deploy, monitor, and control multiple VMs from a single interface. Isolate, test, and automate with enterprise-grade orchestration.
+                </p>
+            </div>
+
+            <div class="vm-grid reveal">
+                <div class="vm-card" style="--vm-color: #8b5cf6">
+                    <div class="vm-header">
+                        <span class="vm-icon">🖥️</span>
+                        <span class="vm-label">Primary VM</span>
+                    </div>
+                    <div class="vm-status">
+                        <span class="status-dot running"></span>
+                        <span>Running</span>
+                    </div>
+                    <div class="vm-metrics">
+                        <div class="vm-metric">
+                            <span class="metric-label">CPU</span>
+                            <span class="metric-value">45%</span>
+                        </div>
+                        <div class="vm-metric">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">3.2 GB</span>
+                        </div>
+                    </div>
+                    <div class="vm-actions">
+                        <button class="vm-btn action">Stop</button>
+                        <button class="vm-btn">Restart</button>
+                    </div>
+                </div>
+
+                <div class="vm-card" style="--vm-color: #ec4899">
+                    <div class="vm-header">
+                        <span class="vm-icon">🧪</span>
+                        <span class="vm-label">Sandbox</span>
+                    </div>
+                    <div class="vm-status">
+                        <span class="status-dot testing"></span>
+                        <span>Testing</span>
+                    </div>
+                    <div class="vm-metrics">
+                        <div class="vm-metric">
+                            <span class="metric-label">CPU</span>
+                            <span class="metric-value">78%</span>
+                        </div>
+                        <div class="vm-metric">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">1.8 GB</span>
+                        </div>
+                    </div>
+                    <div class="vm-actions">
+                        <button class="vm-btn action">Terminate</button>
+                        <button class="vm-btn">Snapshot</button>
+                    </div>
+                </div>
+
+                <div class="vm-card" style="--vm-color: #22c55e">
+                    <div class="vm-header">
+                        <span class="vm-icon">🔒</span>
+                        <span class="vm-label">Isolated</span>
+                    </div>
+                    <div class="vm-status">
+                        <span class="status-dot idle"></span>
+                        <span>Idle</span>
+                    </div>
+                    <div class="vm-metrics">
+                        <div class="vm-metric">
+                            <span class="metric-label">CPU</span>
+                            <span class="metric-value">0%</span>
+                        </div>
+                        <div class="vm-metric">
+                            <span class="metric-label">Memory</span>
+                            <span class="metric-value">512 MB</span>
+                        </div>
+                    </div>
+                    <div class="vm-actions">
+                        <button class="vm-btn primary">Start</button>
+                        <button class="vm-btn">Configure</button>
                     </div>
                 </div>
             </div>
@@ -1689,6 +2360,37 @@
             });
         });
 
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const themeIcon = document.querySelector('.theme-icon');
+            const newTheme = currentTheme === 'dark' ? 'zen-light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+
+            // Save theme preference to localStorage
+            localStorage.setItem('kronos-theme', newTheme);
+        }
+
+        // Initialize theme from localStorage or default to dark
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('kronos-theme');
+            const themeIcon = document.querySelector('.theme-icon');
+
+            if (savedTheme === 'zen-light') {
+                document.documentElement.setAttribute('data-theme', 'zen-light');
+                themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        // Theme toggle event listener
+        document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
         window.addEventListener('scroll', () => {
             revealOnScroll();
             handleNavScroll();
@@ -1699,7 +2401,50 @@
         window.addEventListener('load', () => {
             createParticles();
             revealOnScroll();
+            initializeTheme();
+            startHeroAnimation();
         });
+
+        // Animated Headlines in Hero
+        function startHeroAnimation() {
+            const animatedTexts = document.querySelectorAll('.animated-text');
+            const typewriter1 = document.getElementById('typewriter1');
+            const typewriter2 = document.getElementById('typewriter2');
+            const cursor = document.getElementById('cursor');
+            let currentIndex = 0;
+            const intervalTime = 4000; // 4 seconds per text
+
+            // Typewriter effect for terminal demo
+            if (typewriter1) {
+                typeText(typewriter1, 'kronos start --agent browser-automation', 50);
+            }
+            if (typewriter2) {
+                typeText(typewriter2, 'kronos exec --script "automate-github.js"', 50);
+            }
+
+            // Cycle through animated headlines
+            setInterval(() => {
+                animatedTexts.forEach(text => text.classList.remove('active'));
+                animatedTexts[currentIndex].classList.add('active');
+                currentIndex = (currentIndex + 1) % animatedTexts.length;
+            }, intervalTime);
+        }
+
+        // Typewriter effect helper
+        function typeText(element, text, speed = 50) {
+            element.textContent = '';
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
 
         console.log('🌐 KRONOS-OS - The Future of Intelligent Browsing');
         console.log('✨ Powered by advanced AI technology');

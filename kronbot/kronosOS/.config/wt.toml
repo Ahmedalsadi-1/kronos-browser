@@ -1,0 +1,5 @@
+[post-create]
+llm = "cp -r {{ repo_root }}/.llm . 2>/dev/null || true"
+
+[pre-remove]
+llm-sync = "rsync -au .llm/ {{ repo_root }}/.llm/ 2>/dev/null || true"

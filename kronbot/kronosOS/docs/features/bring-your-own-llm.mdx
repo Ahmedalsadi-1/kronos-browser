@@ -1,0 +1,186 @@
+---
+title: "Bring Your Own LLM"
+description: "Connect your own AI models to BrowserOS"
+---
+
+BrowserOS includes a default AI model you can use right away, but it has strict rate limits. For the best experience, bring your own API keys or run models locally.
+
+## Which Model Should I Use?
+
+| Mode | What works | Recommendation |
+|------|------------|----------------|
+| **Chat Mode** | Any model, including local | Ollama or Gemini Flash |
+| **Agent Mode** | Cloud models only | Claude Opus 4.5 |
+
+<Warning>
+**Local LLMs aren't powerful for most agentic tasks yet.** They're great for Chat — asking questions about a page, summarizing, etc. But agent tasks need strong reasoning to click the right elements and handle multi-step workflows. Use Claude Opus 4.5 or Sonnet 4.5 for agents.
+</Warning>
+
+---
+
+## Cloud Providers
+
+Connect to powerful AI models using your API keys. Your keys stay on your machine — requests go directly to the provider.
+
+<AccordionGroup>
+  <div id="gemini" />
+  <Accordion title="Gemini (Free)" icon="google">
+    Gemini Flash is fast and free. Google gives you 20 requests per minute at no cost.
+
+    **Get your API key:**
+    1. Go to [aistudio.google.com](https://aistudio.google.com)
+    2. Click **Get API key** in the sidebar
+    3. Click **Create API key** and copy it
+
+    ![Get Gemini API key](/images/gemini-get-api-key.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the Gemini card
+    3. Set **Model ID** to `gemini-2.5-flash-preview-05-20`
+    4. Paste your API key
+    5. Check **Supports Images**, set **Context Window** to `1000000`
+    6. Click **Save**
+
+    ![Gemini config](/images/byollm--gemini-provider-config.png)
+  </Accordion>
+
+  <div id="claude" />
+  <Accordion title="Claude (Best for Agents)" icon="message-bot">
+    Claude Opus 4.5 gives the best results for Agent Mode.
+
+    **Get your API key:**
+    1. Go to [console.anthropic.com](https://console.anthropic.com/dashboard)
+    2. Click **API keys** in the sidebar
+    3. Click **Create Key** and copy it
+
+    ![Get Claude API key](/images/claude-api-keys.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the Anthropic card
+    3. Set **Model ID** to `claude-opus-4-5-20250514`
+    4. Paste your API key
+    5. Check **Supports Images**, set **Context Window** to `200000`
+    6. Click **Save**
+
+    ![Claude config](/images/byollm--claude-provider-config.png)
+  </Accordion>
+
+  <div id="openai" />
+  <Accordion title="OpenAI" icon="brain">
+    GPT-4.1 is solid for both chat and agent tasks.
+
+    **Get your API key:**
+    1. Go to [platform.openai.com](https://platform.openai.com)
+    2. Click settings icon → **API keys**
+    3. Click **Create new secret key** and copy it
+
+    ![Get OpenAI API key](/images/openai-api-keys.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the OpenAI card
+    3. Set **Model ID** to `gpt-4.1`
+    4. Paste your API key
+    5. Check **Supports Images**, set **Context Window** to `128000`
+    6. Click **Save**
+
+    ![OpenAI config](/images/byollm--openai-provider-config.png)
+  </Accordion>
+
+  <div id="openrouter" />
+  <Accordion title="OpenRouter" icon="shuffle">
+    Access 500+ models through one API.
+
+    **Get your API key:**
+    1. Go to [openrouter.ai](https://openrouter.ai) and sign up
+    2. Copy your API key from the homepage
+
+    **Pick a model:**
+    Go to [openrouter.ai/models](https://openrouter.ai/models) and copy the model ID you want (e.g., `anthropic/claude-opus-4.5`).
+
+    ![OpenRouter models](/images/openrouter-models.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the OpenRouter card
+    3. Paste the model ID and your API key
+    4. Set **Context Window** based on the model
+    5. Click **Save**
+
+    ![OpenRouter config](/images/byollm--openrouter-provider-config.png)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Local Models
+
+<Note>
+**Run AI completely offline.** Local models are free, private, and your data never leaves your machine. Perfect for Chat Mode with sensitive data.
+</Note>
+
+<AccordionGroup>
+  <div id="ollama" />
+  <Accordion title="Ollama" icon="terminal">
+    The easiest way to run models locally.
+
+    **Setup:**
+    1. Download from [ollama.com](https://ollama.com)
+    2. Pull a model:
+       ```bash
+       ollama pull llama3.2
+       ```
+    3. Start Ollama:
+       ```bash
+       ollama serve
+       ```
+
+    ![Ollama running](/images/setting-up-ollama/ollama-step3.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the Ollama card
+    3. Set **Model ID** to `llama3.2`
+    4. Click **Save**
+
+    ![Ollama in BrowserOS](/images/byollm--ollama-config.png)
+
+    **Recommended models:** `llama3.2`, `qwen3:8b`, `mistral`
+  </Accordion>
+
+  <div id="lmstudio" />
+  <Accordion title="LM Studio" icon="desktop">
+    Nice GUI if you don't want to use the terminal.
+
+    **Setup:**
+    1. Download from [lmstudio.ai](https://lmstudio.ai)
+    2. Open LM Studio → **Developer** tab → load a model
+    3. It runs a server at `http://localhost:1234/v1/`
+
+    ![LM Studio](/images/setting-up-lm-studio/lmstudio-step1.png)
+
+    **Add to BrowserOS:**
+    1. Go to `chrome://browseros/settings`
+    2. Click **USE** on the **OpenAI Compatible** card
+    3. Set **Base URL** to `http://localhost:1234/v1/`
+    4. Set **Model ID** to the model you loaded
+    5. Set **Context Window** to match your LM Studio config
+    6. Click **Save**
+
+    ![LM Studio in BrowserOS](/images/byollm--lmstudio-config.png)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Switching Between Models
+
+Use the model switcher in the Assistant panel to change providers anytime. The default provider is highlighted.
+
+![Model switcher](/images/byollm--switcher.png)
+
+<Tip>
+Use local models for sensitive work data. Switch to Claude for agent tasks that need complex reasoning.
+</Tip>

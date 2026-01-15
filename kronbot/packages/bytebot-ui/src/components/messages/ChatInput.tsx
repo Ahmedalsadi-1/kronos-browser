@@ -161,14 +161,14 @@ export function ChatInput({
       />
       
       {errorMessage && (
-        <div className="mb-2 rounded-md bg-red-50 px-3 py-2 text-sm text-red-600">
+        <div className="glass mb-2 rounded-md px-3 py-2 text-sm">
           {errorMessage}
         </div>
       )}
       
       {selectedFiles.length > 0 && (
         <div className="mb-2">
-          <div className="mb-1 flex items-center justify-between text-xs text-gray-500">
+          <div className="mb-1 flex items-center justify-between text-xs text-zen-grey-mid-2">
             <span>{selectedFiles.length} / {MAX_FILES} files</span>
             <span>Max 30MB per file</span>
           </div>
@@ -176,17 +176,17 @@ export function ChatInput({
             {selectedFiles.map((file, index) => (
               <div
                 key={index}
-                className="flex items-center gap-1 rounded-md bg-gray-100 px-2 py-1 text-sm"
+                className="flex items-center gap-1 rounded-md bg-zen-white-1-80 border border-zen-grey-light-2 px-2 py-1 text-sm"
               >
-                <span className="max-w-[200px] truncate">{file.name}</span>
+                <span className="max-w-[200px] truncate text-zen-grey-dark-1">{file.name}</span>
                 <button
                   type="button"
                   onClick={() => removeFile(index)}
-                  className="ml-1 rounded-sm hover:bg-gray-200"
+                  className="ml-1 rounded-sm hover:bg-zen-grey-light-2"
                 >
                   <HugeiconsIcon
                     icon={Cancel01Icon}
-                    className="h-3 w-3 text-gray-600"
+                    className="h-3 w-3 text-zen-grey-mid-1"
                   />
                 </button>
               </div>
@@ -202,9 +202,10 @@ export function ChatInput({
           value={input}
           onChange={(e) => onInputChange(e.target.value)}
           className={cn(
-            "placeholder:text-bytebot-bronze-light-10 w-full rounded-lg py-2 pr-16 pl-3 placeholder:text-[13px]",
-            "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-bytebot-bronze-light-7 flex min-w-0 border bg-transparent text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-            "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+            "w-full rounded-lg py-2 pr-16 pl-3",
+            "file:text-zen-grey-dark-1 placeholder:text-zen-grey-mid-2 border-zen-grey-light-3 flex min-w-0 bg-zen-white-1-80 text-base transition-all duration-300 outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+            "focus:ring-2 focus:ring-zen-grey-light-3 focus:border-zen-grey-light-2",
+            "aria-invalid:ring-red-300 aria-invalid:border-red-300",
             "resize-none overflow-hidden",
           )}
           disabled={isLoading}
@@ -221,29 +222,29 @@ export function ChatInput({
             type="button"
             variant="ghost"
             size="icon"
-            className="h-6 w-6 cursor-pointer rounded-sm hover:bg-gray-100"
+            className="h-6 w-6 cursor-pointer rounded-sm hover:bg-zen-grey-light-2 transition-all duration-300"
             onClick={triggerFileInput}
             disabled={isLoading}
           >
             <HugeiconsIcon
               icon={Attachment01Icon}
-              className="h-4 w-4 text-gray-600"
+              className="h-4 w-4 text-zen-grey-mid-1"
             />
           </Button>
           
           {isLoading ? (
-            <div className="border-bytebot-bronze-light-7 border-t-primary h-5 w-5 animate-spin rounded-full border-2" />
+            <div className="border-zen-grey-light-3 border-t-zen-grey-mid-1 h-5 w-5 animate-spin rounded-full border-2"></div>
           ) : (
             <Button
               type="submit"
               variant="ghost"
               size="icon"
-              className="bg-bytebot-bronze-dark-7 hover:bg-bytebot-bronze-dark-6 h-6 w-6 cursor-pointer rounded-sm"
+              className="h-6 w-6 cursor-pointer rounded-sm transition-all duration-300"
               disabled={isLoading}
             >
               <HugeiconsIcon
                 icon={ArrowRight02Icon}
-                className="h-4 w-4 text-white"
+                className="h-4 w-4 text-zen-grey-dark-1"
               />
             </Button>
           )}

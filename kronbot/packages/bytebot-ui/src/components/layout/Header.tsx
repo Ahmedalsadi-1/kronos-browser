@@ -30,40 +30,35 @@ export function Header() {
     return pathname?.startsWith(path);
   };
 
-  // Get classes for navigation links based on active state
   const getLinkClasses = (path: string) => {
     const baseClasses =
-      "flex items-center gap-1.5 transition-colors px-3 py-1.5 rounded-lg";
+      "flex items-center gap-1.5 transition-all duration-300 px-3 py-1.5 rounded-lg";
     const activeClasses =
-      "bg-bytebot-bronze-light-a3 text-bytebot-bronze-light-12";
+      "bg-zen-grey-light-3 text-zen-white-1";
     const inactiveClasses =
-      "text-bytebot-bronze-dark-9 hover:bg-bytebot-bronze-light-a1 hover:text-bytebot-bronze-light-12";
-
+      "text-zen-grey-mid-1 hover:bg-zen-grey-light-1 hover:text-zen-grey-dark-1";
+ 
     return `${baseClasses} ${isActive(path) ? activeClasses : inactiveClasses}`;
   };
 
   return (
-    <header className="bg-background flex items-center justify-between border-b p-4">
+    <header className="glass sticky top-0 z-50 flex items-center justify-between border-b border-zen-grey-light-2 p-4">
       <div className="flex items-center gap-6">
         {/* Logo without link */}
         <div>
           {mounted ? (
             <Image
-              src={
-                resolvedTheme === "dark"
-                  ? "/kronos-logo-light.png"
-                  : "/kronos-logo-dark.png"
-              }
+              src="/kronos-logo.png"
               alt="Kronos Agent Logo"
               width={100}
               height={30}
-              className="h-8 w-auto"
+              className="h-8 w-auto drop-shadow-md"
             />
           ) : (
             <div className="h-8 w-[110px]" />
           )}
         </div>
-        <div className="border-bytebot-bronze-dark-11 h-5 border border-l-[0.5px]"></div>
+        <div className="border-zen-grey-light-3 h-5 border border-l-[0.5px]"></div>
         <div className="flex items-center gap-2">
           <Link href="/" className={getLinkClasses("/")}>
             <HugeiconsIcon icon={Home01Icon} className="h-4 w-4" />

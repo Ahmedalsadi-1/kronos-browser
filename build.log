@@ -1,0 +1,5 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Kronos.xcodeproj -scheme kronos -destination platform=macOS build
+
+2026-01-13 02:25:32.108 xcodebuild[29953:2821458] Writing error result bundle to /var/folders/_1/w7l4468114zd9bd27_4kjrlm0000gn/T/ResultBundle_2026-13-01_02-25-0032.xcresult
+xcodebuild: error: 'Kronos.xcodeproj' does not exist.

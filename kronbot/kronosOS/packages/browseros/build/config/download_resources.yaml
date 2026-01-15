@@ -1,0 +1,64 @@
+# Download resources configuration for BrowserOS build
+# This file defines resources to download from R2 before the build process
+#
+# Behavior:
+# - Files are downloaded from R2 bucket at the specified r2_key path
+# - Existing files are cleared and re-downloaded (ensures latest)
+# - Build fails immediately if any download fails
+# - For universal builds on macOS, both arm64 and x64 are downloaded automatically
+#
+# Conditional Operations:
+# - Use 'os' field to specify target operating systems
+#   - Supported values: windows, macos, linux (case-sensitive)
+# - Use 'arch' field to specify target architectures
+#   - Supported values: x64, arm64
+# - Use 'build_type' field to specify when an operation should run
+#   - Supported values: debug, release
+# - Use 'executable' field to mark files that need executable permissions
+#   - Set to true for binaries (permissions are not preserved during download)
+#
+# R2 Path Structure:
+#   binaries/browseros-server/{filename}
+#
+# Example:
+#   - name: "My Binary - macOS ARM64"
+#     r2_key: "binaries/my-binary/my-binary-darwin-arm64"
+#     destination: "resources/binaries/my_binary/my-binary-darwin-arm64"
+#     os: ["macos"]
+#     arch: ["arm64"]
+
+download_operations:
+  # BrowserOS Server Binary - Platform & Architecture specific
+  - name: "BrowserOS Server - macOS ARM64"
+    r2_key: "binaries/browseros-server/browseros-server-darwin-arm64"
+    destination: "resources/binaries/browseros_server/browseros-server-darwin-arm64"
+    os: ["macos"]
+    arch: ["arm64"]
+    executable: true
+
+  - name: "BrowserOS Server - macOS x64"
+    r2_key: "binaries/browseros-server/browseros-server-darwin-x64"
+    destination: "resources/binaries/browseros_server/browseros-server-darwin-x64"
+    os: ["macos"]
+    arch: ["x64"]
+    executable: true
+
+  - name: "BrowserOS Server - Linux ARM64"
+    r2_key: "binaries/browseros-server/browseros-server-linux-arm64"
+    destination: "resources/binaries/browseros_server/browseros-server-linux-arm64"
+    os: ["linux"]
+    arch: ["arm64"]
+    executable: true
+
+  - name: "BrowserOS Server - Linux x64"
+    r2_key: "binaries/browseros-server/browseros-server-linux-x64"
+    destination: "resources/binaries/browseros_server/browseros-server-linux-x64"
+    os: ["linux"]
+    arch: ["x64"]
+    executable: true
+
+  - name: "BrowserOS Server - Windows x64"
+    r2_key: "binaries/browseros-server/browseros-server-windows-x64.exe"
+    destination: "resources/binaries/browseros_server/browseros-server-windows-x64.exe"
+    os: ["windows"]
+    arch: ["x64"]

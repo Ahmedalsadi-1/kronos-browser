@@ -151,7 +151,9 @@ RUN pip3 install --upgrade pip
 RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC \
     && git clone https://github.com/novnc/websockify.git /opt/websockify \
     && cd /opt/websockify \
-    && pip3 install --break-system-packages .
+    && pip3 install --break-system-packages . \
+    # Create index.html as a symlink to vnc.html for backwards compatibility
+    && ln -sf /opt/noVNC/vnc.html /opt/noVNC/index.html
 
 # -----------------------------------------------------------------------------
 # 5. Application setup (bytebotd)
