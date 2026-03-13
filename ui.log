@@ -1,0 +1,10 @@
+
+> kronos-agent-ui@0.1.0 dev
+> npm run build --prefix ../shared && tsx server.ts
+
+
+> @bytebot/shared@0.0.1 build
+> tsc -p tsconfig.json
+
+Server failed to start: Error: [HPM] Missing "target" option. Example: {target: "http://www.example.org"}
+    at <unknown> (server.ts:33:45)
