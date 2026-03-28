@@ -333,10 +333,11 @@ export function convertComputerActionToToolUseBlock(
       return convertWriteFileActionToToolUseBlock(action, toolUseId);
     case "read_file":
       return convertReadFileActionToToolUseBlock(action, toolUseId);
-    default:
+    default: {
       const exhaustiveCheck: never = action;
       throw new Error(
         `Unknown action type: ${(exhaustiveCheck as any).action}`
       );
+    }
   }
 }
