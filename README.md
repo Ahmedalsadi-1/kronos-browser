@@ -204,6 +204,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## 🔍 Ecosystem Status (Initialized)
+
+| Project | Location | Status | Initialized |
+|---------|----------|--------|-------------|
+| **Shared** | `kronbot/packages/shared` | 🟢 Built | Yes |
+| **Agent** | `kronbot/packages/bytebot-agent` | 🟢 Prisma Generated | Yes |
+| **Agent CC** | `kronbot/packages/bytebot-agent-cc` | 🟢 Prisma Generated | Yes |
+| **Agent UI** | `kronbot/packages/bytebot-ui` | 🟢 Deps Installed | Yes |
+| **Desktop Backend** | `kronbot/packages/bytebotd` | 🟢 Deps Installed | Yes |
+| **BrowserOS Agent** | `kronbot/kronosOS/packages/browseros-agent` | 🟢 SDK Built | Yes |
+| **BrowserOS** | `BrowserOS/` | ⚪ Empty | N/A |
+| **EdgyArc-fr** | `EdgyArc-fr/` | ⚪ Empty | N/A |
+| **Desktop** | `desktop/` | ⚪ Empty | N/A |
+| **Website** | `website/` | 🟢 Landing Page | Yes |
+
+---
+
 <div align="center">
 
 **Built with ❤️ by Ahmed Alsadi**
