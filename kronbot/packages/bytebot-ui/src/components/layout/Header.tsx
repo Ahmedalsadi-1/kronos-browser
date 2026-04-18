@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -13,7 +12,6 @@ import {
 import { usePathname } from "next/navigation";
 
 export function Header() {
-  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
