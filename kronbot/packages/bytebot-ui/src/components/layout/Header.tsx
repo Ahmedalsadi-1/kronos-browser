@@ -13,7 +13,7 @@ import {
 import { usePathname } from "next/navigation";
 
 export function Header() {
-  const { resolvedTheme } = useTheme();
+  useTheme();
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
